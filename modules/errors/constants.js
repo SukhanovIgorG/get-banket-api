@@ -1,0 +1,13 @@
+exports.castErrorCode = 400;
+exports.authErrorCode = 401;
+exports.rulesErrorCode = 403;
+exports.notFoundErrorCode = 404;
+exports.mongoErrorCode = 409;
+exports.serverErrorCode = 500;
+exports.castErrorMessage = 'Переданы некорректные данные';
+exports.authErrorMessage = 'Ошибка авторизации';
+exports.rulesErrorMessage = 'Недостаточно прав';
+exports.notFoundErrorMessage = 'Данные не найдены';
+exports.mongoErrorMessage = 'Ошибка базы данных';
+exports.loginErrorMessage = 'Неправильные почта или пароль';
+exports.serverErrorMessage = 'На сервере произошла ошибка';
