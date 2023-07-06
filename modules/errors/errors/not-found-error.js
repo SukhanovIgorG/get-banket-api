@@ -1,4 +1,4 @@
-const { notFoundErrorCode } = require('../utils/constants');
+const { notFoundErrorCode } = require('../constants');
 
 module.exports = class NotFoundError extends Error {
   constructor(message) {

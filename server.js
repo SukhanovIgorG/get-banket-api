@@ -2,7 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const { PORT = 3000, MONGO_PROD, NODE_ENV, MONGO_DEV } = process.env;
+const { PORT = 7777, MONGO_PROD, NODE_ENV, MONGO_DEV } = process.env;
 
 async function main() {
   await mongoose.connect(NODE_ENV === 'prod' ? MONGO_PROD : MONGO_DEV,

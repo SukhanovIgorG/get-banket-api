@@ -1,4 +1,4 @@
-const { mongoErrorCode } = require('../utils/constants');
+const { mongoErrorCode } = require('../constants');
 
 module.exports = class MongoError extends Error {
   constructor(message) {

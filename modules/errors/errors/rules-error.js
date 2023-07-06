@@ -1,4 +1,4 @@
-const { rulesErrorCode } = require('../utils/constants');
+const { rulesErrorCode } = require('../constants');
 
 module.exports = class RulesError extends Error {
   constructor(message) {

@@ -1,4 +1,4 @@
-const { authErrorCode } = require('../utils/constants');
+const { authErrorCode } = require('../constants');
 
 module.exports = class AuthError extends Error {
   constructor(message) {

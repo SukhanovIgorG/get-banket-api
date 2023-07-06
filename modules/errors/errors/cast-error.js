@@ -1,4 +1,4 @@
-const { castErrorCode } = require('../utils/constants');
+const { castErrorCode } = require('../constants');
 
 module.exports = class CastError extends Error {
   constructor(message) {

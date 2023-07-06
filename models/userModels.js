@@ -22,9 +22,9 @@ const userShema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      validate: {
-        validator: (v) => isEmail(v),
-      },
+      // validate: {
+      //   validator: (v) => isEmail(v),
+      // },
     },
     tell: {
       type: String,
@@ -60,8 +60,9 @@ const userShema = new mongoose.Schema(
       maxLength: 30,
     },
     authorId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
+      // type: Schema.Types.ObjectId,
+      type: String,
+      // ref: 'User',
     },
     placeId: {
       type: String,
