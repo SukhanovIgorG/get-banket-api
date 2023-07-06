@@ -10,7 +10,7 @@ const { limiter } = require('./utils/limiter');
 // const NotFoundError = require('./errors/not-found-error');
 const { requestLogger, errorLogger } = require('./modules/logger/logger');
 // const { loginRoutes } = require('./src/routes/loginRoutes');
-// const { userRoutes } = require('./src/routes/userRoutes');
+const { userRoutes } = require('./modules/user/userRouter');
 // const { movieRoutes } = require('./src/routes/movieRoutes');
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use(auth);
 
-// app.use(userRoutes);
+app.use(userRoutes);
 // app.use(movieRoutes);
 
 // app.use(() => {
