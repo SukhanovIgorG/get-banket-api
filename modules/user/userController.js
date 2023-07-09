@@ -10,7 +10,7 @@ const {
   mongoErrorMessage, castErrorMessage, notFoundErrorMessage, loginErrorMessage,
 } = require('../errors/constants');
 
-const { User } = require('../../models/userModels');
+const { User } = require('../../models/userModel');
 
 const { JWT_SECRET, NODE_ENV } = process.env;
 

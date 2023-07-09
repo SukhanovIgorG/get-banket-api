@@ -28,9 +28,12 @@
     "express-rate-limit": "^6.7.0",
     "express-winston": "^4.2.0",
     "helmet": "^7.0.0",
+    "i": "^0.3.7",
     "jsonwebtoken": "^9.0.1",
     "limiter": "^2.1.0",
     "mongoose": "^7.3.1",
+    "npm": "^9.8.0",
+    "swagger-ui-express": "^5.0.0",
     "validator": "^13.9.0",
     "winston": "^3.9.0"
   },

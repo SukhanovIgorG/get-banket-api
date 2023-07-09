@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const { limiter } = require('./utils/limiter');
+const router = require('./router/index');
 // const auth = require('./middlewares/auth');
 // const errorController = require('./middlewares/errorController');
 // const NotFoundError = require('./errors/not-found-error');
@@ -26,7 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(loginRoutes);
 
 // app.use(auth);
-
 app.use(userRoutes);
 // app.use(movieRoutes);
 

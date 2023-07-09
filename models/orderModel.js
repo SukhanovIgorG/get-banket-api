@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+
 const validator = require('validator');
-const { Schema } = require("mongoose");
+const { Schema, model } = require('mongoose');
 const { Types } = require('mongoose');
 
-const orderShema = new mongoose.Schema(
+const orderShema = new Schema(
   {
     banquetNum: {
       type: Number,
@@ -60,9 +60,9 @@ const orderShema = new mongoose.Schema(
         }
       }
     ],
-    location: {
+    room: {
       type: Schema.Types.ObjectId,
-      // ref: 'Location',
+      // ref: 'Room',
       required: false, // TODO: true
     },
     tables: [
@@ -151,6 +151,5 @@ const orderShema = new mongoose.Schema(
     timestamps: true},
 );
 
-
-exports.Order = mongoose.model('Order', orderShema);
+exports.Order = model('Order', orderShema);
 
