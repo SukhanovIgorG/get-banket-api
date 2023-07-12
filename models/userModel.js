@@ -5,7 +5,8 @@ const userShema = new Schema(
     name: {
       type: String,
       minLength: 2,
-      maxLength: 30,
+      maxLength: 50,
+      required: true,
     },
     photo: {
       type: String,
@@ -15,14 +16,15 @@ const userShema = new Schema(
       type: String,
       minLength: 2,
       maxLength: 30,
+      unique: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      validate: {
-        validator: (v) => isEmail(v),
-      },
+      // validate: {
+      //   validator: (v) => isEmail(v),
+      // },
     },
     tell: {
       type: String,
@@ -36,23 +38,15 @@ const userShema = new Schema(
       type: String,
       required: true,
       select: false,
-    },
-    godMode: {
-      type: Boolean,
-      required: false,
-      default: false,
+      minLength: 6,
+      maxLength: 100,
     },
     lock: {
       type: Boolean,
       required: false,
       default: false,
     },
-    roleGlobal: {
-      type: String,
-      minLength: 2,
-      maxLength: 30,
-    },
-    roleLocal: {
+    role: {
       type: String,
       minLength: 2,
       maxLength: 30,

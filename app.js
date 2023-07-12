@@ -6,16 +6,19 @@ const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const { limiter } = require('./utils/limiter');
 const router = require('./router/index');
-// const auth = require('./middlewares/auth');
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./modules/swagger/swagger");
+const auth = require('./modules/auth/auth');
 // const errorController = require('./middlewares/errorController');
 // const NotFoundError = require('./errors/not-found-error');
 const { requestLogger, errorLogger } = require('./modules/logger/logger');
-// const { loginRoutes } = require('./src/routes/loginRoutes');
+const { loginRoutes } = require('./modules/login/loginRoutes');
 const { userRoutes } = require('./modules/user/userRouter');
 // const { movieRoutes } = require('./src/routes/movieRoutes');
 
 const app = express();
 
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors());
 app.use(helmet());
 app.use(requestLogger); // логгер запросов
@@ -26,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use(loginRoutes);
 
+app.use(loginRoutes);
 // app.use(auth);
 app.use(userRoutes);
 // app.use(movieRoutes);

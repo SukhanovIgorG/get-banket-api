@@ -1,5 +1,4 @@
-// const deviceApiPaths = require('../router/devices/device-api-spec');
-// const devicesPaths = require('../modules/devices/devices.router-spec');
+const userPaths = require('../user/userSwagger');
 
 module.exports = {
     openapi: '3.0.0',
@@ -23,7 +22,7 @@ module.exports = {
         // },
     ],
     paths: {
-        // ...deviceApiPaths,
+        ...userPaths,
         // ...devicesPaths
     }
 }

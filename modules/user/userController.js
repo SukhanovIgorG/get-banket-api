@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const NotFoundError = require('../errors/errors/not-found-error');
 const CastError = require('../errors/errors/cast-error');
 const MongoError = require('../errors/errors/mongo-error');
+const AuthError = require('../errors/errors/auth-error');
 
 const {
   mongoErrorMessage, castErrorMessage, notFoundErrorMessage, loginErrorMessage,
@@ -106,9 +107,9 @@ exports.createUser = async (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  const { email, password } = req.body;
+  const { login, password } = req.body;
 
-  User.findOne({ email })
+  User.findOne({ login })
     .select('+password')
     .then((user) => {
       if (!user) {
@@ -125,14 +126,16 @@ exports.login = (req, res, next) => {
           return user;
         })
         .then((userAuth) => {
+          const { email, login, name, photo, placeId, tell } = userAuth
           const token = jwt.sign(
             { _id: userAuth._id },
-            NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret-key',
+            NODE_ENV === 'prod' ? JWT_SECRET : 'super-strong-secret-key',
             { expiresIn: '1d' },
           );
           res
             .send({
               token,
+              user: {email, login, name, photo, placeId, tell}
             });
         });
     })
